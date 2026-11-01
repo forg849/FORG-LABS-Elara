@@ -23,6 +23,7 @@
       <a href="#workflows">Команды</a>
     </nav>
     <div class="header-actions">
+      <button class="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
       <a class="header-download" href="#download">Скачать <span aria-hidden="true">↓</span></a>
       <a class="header-cta" href="#about">О проекте <span aria-hidden="true">↗</span></a>
     </div>
@@ -288,11 +289,301 @@
     <a href="#top">Наверх ↑</a>
   </footer>
   <script>
+    const englishText = {
+      "Элара": "Elara",
+      "Основная навигация": "Main navigation",
+      "Обзор": "Overview",
+      "Возможности": "Features",
+      "Модели": "Models",
+      "Команды": "Workflows",
+      "Скачать": "Download",
+      "О проекте": "About",
+      "НАСТОЛЬНАЯ ПОМОЩНИЦА ОТ FORG LABS": "A DESKTOP COMPANION BY FORG LABS",
+      "ЭЛАРА": "ELARA",
+      "Твоя Элара": "Your Elara",
+      "всегда рядом.": "always by your side.",
+      "Общайся с ИИ, планируй дела и создавай команды для компьютера — в одном приложении, которое можно настроить под себя.": "Chat with AI, plan your day, and create workflows for your computer — all in one app you can make your own.",
+      "Знакомство с Эларой": "Meet Elara",
+      "Посмотреть команды": "Explore workflows",
+      "Чаты и история": "Chats and history",
+      "Свои сценарии": "Custom workflows",
+      "Декоративный макет окна чата Элары": "Decorative mockup of the Elara chat window",
+      "Привет! Я рядом — с чего начнём?": "Hi! I'm here — what shall we do?",
+      "Помоги спланировать день": "Help me plan my day",
+      "Давай разберёмся. Какие дела важно не забыть?": "Let's figure it out. What do you need to remember?",
+      "Спроси о чём угодно…": "Ask me anything…",
+      "Готова помочь": "Ready to help",
+      "История сохраняется на компьютере": "Chat history stays on your computer",
+      "В ОДНОМ ПРИЛОЖЕНИИ": "ALL IN ONE APP",
+      "Чат · планы · команды": "Chat · plans · workflows",
+      "ПРОКРУТИ, ЧТОБЫ УЗНАТЬ БОЛЬШЕ": "SCROLL TO DISCOVER MORE",
+      "ОДНО ПРИЛОЖЕНИЕ — РАЗНЫЕ ЗАДАЧИ": "ONE APP — MANY WAYS TO HELP",
+      "Общение и дела": "Conversations and tasks",
+      "в одном месте.": "all in one place.",
+      "Элара объединяет чаты с ИИ, расписание, музыку, погоду и команды для компьютера. Выбирай нужный раздел и пользуйся.": "Elara brings together AI chats, schedules, music, weather, and computer workflows. Choose a section and get started.",
+      "ГЛАВНАЯ ЭЛАРЫ": "ELARA'S HOME SCREEN",
+      "Твой день — в одном окне.": "Your day, at a glance.",
+      "Так выглядит главная страница приложения. Погода и показатели компьютера здесь приведены для примера.": "A look at the app's home screen. Weather and system readings are examples.",
+      "Главная": "Home",
+      "Чат": "Chat",
+      "Модель": "Model",
+      "Голос": "Voice",
+      "Расписание": "Schedule",
+      "ИИ": "AI",
+      "Настройки": "Settings",
+      "ТВОЯ УМНАЯ ПОМОЩНИЦА — ВСЕГДА РЯДОМ": "YOUR DESKTOP COMPANION — ALWAYS CLOSE BY",
+      "▢ Открыть чат": "▢ Open chat",
+      "♫ Голос": "♫ Voice",
+      "Твой день": "Your day",
+      "ПЛАНЫ И ИНСТРУМЕНТЫ": "PLANS AND TOOLS",
+      "Погода": "Weather",
+      "НАСТРОЙ ГОРОД": "SET YOUR CITY",
+      "Прогноз появится после настройки города.": "Set your city to see the forecast.",
+      "Сегодня": "Today",
+      "Завтра": "Tomorrow",
+      "Позже": "Later",
+      "Задания": "Tasks",
+      "РАСПИСАНИЕ": "SCHEDULE",
+      "Добавь первое задание в расписании.": "Add your first task to the schedule.",
+      "Открыть расписание": "Open schedule",
+      "Календарь": "Calendar",
+      "МЕСЯЦ": "MONTH",
+      "ПН": "MO",
+      "ВТ": "TU",
+      "СР": "WE",
+      "ЧТ": "TH",
+      "ПТ": "FR",
+      "СБ": "SA",
+      "ВС": "SU",
+      "Задачи и напоминания — в расписании.": "Tasks and reminders live in your schedule.",
+      "Музыка": "Music",
+      "ЛОКАЛЬНЫЕ ФАЙЛЫ": "LOCAL FILES",
+      "Выбери свой трек": "Choose a track",
+      "Музыка на компьютере": "Music on your computer",
+      "Выбрать файл": "Choose a file",
+      "Система": "System",
+      "МОЙ КОМПЬЮТЕР": "MY COMPUTER",
+      "ВОЗМОЖНОСТИ": "FEATURES",
+      "Полезное — без лишнего.": "Useful tools, nothing extra.",
+      "Чаты, задачи, погода и музыка — в одном приложении для компьютера.": "Chats, tasks, weather, and music — all in one desktop app.",
+      "01 / ОБЩЕНИЕ": "01 / CHAT",
+      "Чаты с историей": "Chats with history",
+      "Выбирай модель, начинай новый чат или возвращайся к старым беседам. Для свежих сведений Элара может воспользоваться веб-поиском.": "Choose a model, start a new chat, or return to an earlier conversation. Elara can search the web for up-to-date information.",
+      "НОВЫЙ ДИАЛОГ": "NEW CHAT",
+      "модель": "model",
+      "Orbit · модель": "Orbit · model",
+      "Что обсудим сегодня?": "What would you like to talk about?",
+      "Задай вопрос или просто начни разговор.": "Ask a question or just start a conversation.",
+      "История хранится локально": "History is stored locally",
+      "02 / РАСПИСАНИЕ": "02 / SCHEDULE",
+      "Задачи и напоминания": "Tasks and reminders",
+      "Добавляй задачи и напоминания, отмечай выполненные дела. Все планы видны в расписании и календаре.": "Add tasks and reminders, then mark them complete. See all your plans in the schedule and calendar.",
+      "СЕГОДНЯ": "TODAY",
+      "ПЛАНЫ И НАПОМИНАНИЯ": "PLANS AND REMINDERS",
+      "Новая задача": "New task",
+      "Задай время и название": "Set a time and title",
+      "Напоминание": "Reminder",
+      "Появится в нужный момент": "Shows up at the right time",
+      "03 / ПОГОДА": "03 / WEATHER",
+      "Погода для твоего города": "Weather for your city",
+      "Выбери страну и город — и увидишь текущую температуру, состояние погоды и прогноз на три дня.": "Choose a country and city to see the current temperature, conditions, and a three-day forecast.",
+      "ТВОЁ МЕСТОПОЛОЖЕНИЕ": "YOUR LOCATION",
+      "Страна · город": "Country · city",
+      "Переменная облачность": "Partly cloudy",
+      "Пример отображения": "Example",
+      "Погода для выбранного города": "Weather for your selected city",
+      "04 / ЛОКАЛЬНЫЙ ПЛЕЕР": "04 / LOCAL MUSIC PLAYER",
+      "Твоя музыка — с твоего компьютера": "Your music, on your computer",
+      "Слушай аудиофайлы с компьютера и управляй воспроизведением. Плеер доступен в версии для Windows.": "Play audio files from your computer and control playback. The player is available in the Windows app.",
+      "Локальный аудиофайл": "Local audio file",
+      "05 / МОЙ КОМПЬЮТЕР": "05 / MY COMPUTER",
+      "Состояние системы — на виду": "Keep an eye on your system",
+      "На главной странице видны текущая загрузка процессора и использование памяти. Показатели обновляются в реальном времени.": "See current processor and memory usage on the home screen. Readings update in real time.",
+      "Иллюстрация · показатели зависят от компьютера": "Illustration · readings vary by computer",
+      "06 / ПЕРСОНАЛИЗАЦИЯ": "06 / MAKE IT YOURS",
+      "Настрой рабочее пространство": "Make your workspace yours",
+      "Измени имя Элары, добавь своё имя и выбери оформление.": "Change Elara's name, add your own, and choose a theme.",
+      "Имя Элары": "Elara's name",
+      "Сохранить имя": "Save name",
+      "Твоё имя": "Your name",
+      "Введи своё имя": "Enter your name",
+      "Оформление": "Theme",
+      "Графит": "Graphite",
+      "Уголь": "Coal",
+      "Димка": "Haze",
+      "Бумага": "Paper",
+      "Хэллоуин": "Halloween",
+      "Как в системе": "System default",
+      "Оформление сохранится после перезапуска": "Your theme is saved after you restart",
+      "МОДЕЛИ ИИ": "AI MODELS",
+      "Три модели.": "Three models.",
+      "Для разных задач.": "For different tasks.",
+      "Выбери модель для нового чата — для повседневных вопросов, программирования или вдумчивого разговора.": "Choose a model for your next chat — everyday questions, coding, or thoughtful conversations.",
+      "НА КАЖДЫЙ ДЕНЬ": "FOR EVERYDAY USE",
+      "Для повседневных вопросов и общения.": "For everyday questions and conversation.",
+      "КОД И ФАЙЛЫ": "CODE AND FILES",
+      "Помогает с программированием и файлами.": "Helps with coding and working with files.",
+      "ДЛЯ РАЗГОВОРОВ": "FOR CONVERSATION",
+      "Для разговоров, в которых важны детали.": "For conversations where details matter.",
+      "СВОИ КОМАНДЫ": "CUSTOM WORKFLOWS",
+      "Настрой команды": "Build workflows",
+      "под свои задачи.": "for your needs.",
+      "Выбери, как запускать команду, и добавь нужные действия. Например, горячая клавиша может открыть ссылку и произнести заданную фразу.": "Choose how to start a workflow and add actions. For example, a hotkey can open a link and speak a phrase.",
+      "ЗАПУСК": "TRIGGERS",
+      "УСЛОВИЯ": "CONDITIONS",
+      "ДЕЙСТВИЯ": "ACTIONS",
+      "Иллюстрация визуального редактора команд": "Illustration of the workflow editor",
+      "РЕДАКТОР КОМАНД": "WORKFLOW EDITOR",
+      "⌘ РЕДАКТОР КОМАНД": "⌘ WORKFLOW EDITOR",
+      "1 триггер · 2 действия": "1 trigger · 2 actions",
+      "ТРИГГЕР": "TRIGGER",
+      "Горячая клавиша": "Hotkey",
+      "ДЕЙСТВИЕ": "ACTION",
+      "Открыть ссылку": "Open a link",
+      "Произнести фразу": "Speak a phrase",
+      "Пример команды": "Example workflow",
+      "ГОЛОСОВЫЕ ФУНКЦИИ · АЛЬФА": "VOICE FEATURES · ALPHA",
+      "Когда удобнее": "When it's easier",
+      "говорить.": "to speak.",
+      "Говори с Эларой и запускай команды голосом. Распознавание речи работает через Vosk, а ответы можно озвучить голосом Silero. Голосовые функции пока в альфа-версии.": "Talk to Elara and launch workflows with your voice. Speech recognition uses Vosk, and replies can be spoken with Silero. Voice features are in alpha.",
+      "Выбери микрофон": "Choose a microphone",
+      "Включи голосовой ввод": "Turn on voice input",
+      "Выбери голос для ответов": "Choose a voice for replies",
+      "УСТАНОВКА НА ПК": "INSTALL ON YOUR PC",
+      "Элара для Windows.": "Elara for Windows.",
+      "Установщик готов. Требования по памяти и месту предварительные и могут зависеть от выбранной ИИ-модели.": "The installer is ready. Memory and storage requirements are estimates and depend on the AI model you choose.",
+      "Windows 10 или 11": "Windows 10 or 11",
+      "64-разрядная версия.": "64-bit edition.",
+      "Видеокарта NVIDIA": "NVIDIA graphics card",
+      "Нужна поддержка CUDA. 8 ГБ видеопамяти — ориентир по проверенной конфигурации, а не подтверждённый минимум.": "CUDA support is required. 8 GB of VRAM is a reference from a tested setup, not a confirmed minimum.",
+      "От 16 ГБ оперативной памяти": "16 GB RAM or more",
+      "Предварительная рекомендация; точный минимум ещё предстоит проверить.": "A preliminary recommendation; the exact minimum still needs testing.",
+      "25 ГБ свободного места": "25 GB of free storage",
+      "Предварительный запас для установки и первой ИИ-модели. Остальные модели скачиваются отдельно и занимают примерно 3–8 ГБ каждая.": "An estimate for the app and first AI model. Other models are downloaded separately and use about 3–8 GB each.",
+      "Голосовой ввод — по желанию": "Voice input is optional",
+      "Нужны микрофон и около 3,5 ГБ для модели распознавания. Для загрузки моделей потребуется интернет.": "A microphone and about 3.5 GB for the speech model are needed. An internet connection is required to download models.",
+      "Скачать для Windows": "Download for Windows",
+      "Установщик · 2,67 ГБ. Google Диск может запросить подтверждение загрузки.": "Installer · 2.67 GB. Google Drive may ask you to confirm the download.",
+      "FORG LABS · ЭЛАРА": "FORG LABS · ELARA",
+      "Элара для твоих": "Elara for your",
+      "повседневных дел.": "everyday life.",
+      "Посмотри предварительные требования к установке.": "Check the estimated system requirements.",
+      "Требования к ПК": "System requirements",
+      "Настольная помощница · Forg Labs": "Desktop companion · Forg Labs",
+      "Наверх": "Back to top",
+      "Наверх ↑": "Back to top ↑",
+      "Включить хэллоуинскую тему": "Enable the Halloween theme",
+      "Выключить хэллоуинскую тему": "Disable the Halloween theme"
+    };
+
     const themeToggle = document.querySelector(".theme-toggle");
+    const languageToggle = document.querySelector(".language-toggle");
+    const descriptions = {
+      ru: "Элара — настольная помощница: чаты, расписание, модели ИИ и собственные команды.",
+      en: "Elara is a desktop companion for AI chats, schedules, models, and custom workflows."
+    };
+    const titles = {
+      ru: "Элара — помощница рядом",
+      en: "Elara — your desktop companion"
+    };
+    const originalTextNodes = new WeakMap();
+    const textNodeFilter = {
+      acceptNode(node) {
+        return node.parentElement.closest("script, style")
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT;
+      }
+    };
+    const sourceWalker = document.createTreeWalker(
+      document.body,
+      NodeFilter.SHOW_TEXT,
+      textNodeFilter
+    );
+    let sourceNode;
+    while ((sourceNode = sourceWalker.nextNode())) {
+      originalTextNodes.set(sourceNode, sourceNode.nodeValue);
+    }
+
+    function browserLanguage() {
+      const preferred = navigator.languages?.[0] || navigator.language || "ru";
+      return preferred.toLowerCase().startsWith("en") ? "en" : "ru";
+    }
+
+    function setLanguage(language, save = true) {
+      const useEnglish = language === "en";
+      const walker = document.createTreeWalker(
+        document.body,
+        NodeFilter.SHOW_TEXT,
+        textNodeFilter
+      );
+      let node;
+      while ((node = walker.nextNode())) {
+        const original = originalTextNodes.get(node);
+        if (useEnglish && original) {
+          const trimmed = original.trim().replace(/\s+/g, " ");
+          const translated = englishText[trimmed];
+          if (translated) {
+            const leading = original.match(/^\s*/)[0];
+            const trailing = original.match(/\s*$/)[0];
+            node.nodeValue = `${leading}${translated}${trailing}`;
+          }
+        } else if (original) {
+          node.nodeValue = original;
+        }
+      }
+
+      document.documentElement.lang = language;
+      document.title = titles[language];
+      document.querySelector('meta[name="description"]').content = descriptions[language];
+      document.querySelector(".brand").setAttribute(
+        "aria-label",
+        useEnglish ? "Forg Labs — Elara" : "Forg Labs — Элара"
+      );
+      document.querySelector(".nav-links").setAttribute(
+        "aria-label",
+        useEnglish ? "Main navigation" : "Основная навигация"
+      );
+      document.querySelector(".hero-preview").setAttribute(
+        "aria-label",
+        useEnglish ? "Decorative mockup of the Elara chat window" : "Декоративный макет окна чата Элары"
+      );
+      document.querySelector(".editor-demo").setAttribute(
+        "aria-label",
+        useEnglish ? "Illustration of the workflow editor" : "Иллюстрация визуального редактора команд"
+      );
+      languageToggle.textContent = useEnglish ? "RU" : "EN";
+      languageToggle.setAttribute(
+        "aria-label",
+        useEnglish ? "Switch to Russian" : "Switch to English"
+      );
+      languageToggle.title = useEnglish ? "Switch to Russian" : "Switch to English";
+      const halloweenLabel = useEnglish
+        ? (themeToggle.getAttribute("aria-pressed") === "true"
+          ? englishText["Выключить хэллоуинскую тему"]
+          : englishText["Включить хэллоуинскую тему"])
+        : (themeToggle.getAttribute("aria-pressed") === "true"
+          ? "Выключить хэллоуинскую тему"
+          : "Включить хэллоуинскую тему");
+      themeToggle.setAttribute("aria-label", halloweenLabel);
+      themeToggle.title = halloweenLabel;
+
+      if (save) {
+        localStorage.setItem("elara-site-language", language);
+      }
+    }
+
+    const savedLanguage = localStorage.getItem("elara-site-language");
+    setLanguage(savedLanguage === "en" || savedLanguage === "ru" ? savedLanguage : browserLanguage(), false);
+    languageToggle.addEventListener("click", () => {
+      setLanguage(document.documentElement.lang === "en" ? "ru" : "en");
+    });
+
     themeToggle.addEventListener("click", () => {
       const enabled = document.body.classList.toggle("halloween-theme");
       themeToggle.setAttribute("aria-pressed", String(enabled));
-      const label = enabled ? "Выключить хэллоуинскую тему" : "Включить хэллоуинскую тему";
+      const label = document.documentElement.lang === "en"
+        ? (enabled ? englishText["Выключить хэллоуинскую тему"] : englishText["Включить хэллоуинскую тему"])
+        : (enabled ? "Выключить хэллоуинскую тему" : "Включить хэллоуинскую тему");
       themeToggle.setAttribute("aria-label", label);
       themeToggle.title = label;
     });
