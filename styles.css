@@ -121,6 +121,7 @@ h1, h2, h3 { font-family: var(--display); }
 .header-cta span { color: var(--orange); }
 
 .hero { position: relative; display: grid; grid-template-columns: 1fr .95fr; min-height: 570px; align-items: center; gap: 36px; padding-top: 24px; }
+.holiday-garland { display: none; }
 .hero-copy { position: relative; z-index: 2; padding-bottom: 20px; }
 .eyebrow { margin-bottom: 17px; color: var(--muted); font-size: 9px; font-weight: 700; letter-spacing: .15em; }
 .status-dot { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px rgba(255,152,84,.45); vertical-align: 1px; }
@@ -482,6 +483,500 @@ body.halloween-theme .widget:hover {
   box-shadow: 0 14px 38px rgba(0,0,0,.28), 0 0 28px rgba(223,111,66,.14);
 }
 body.halloween-theme .voice-orb::before, body.halloween-theme .voice-orb::after { animation-name: voice-ring; }
+
+body.new-year-theme {
+  --accent: #a9e3f2;
+  --orange: #f0c978;
+  --mint: #a8dfbf;
+  background:
+    radial-gradient(ellipse at 12% 9%, rgba(35,104,111,.25), transparent 32rem),
+    radial-gradient(ellipse at 91% 32%, rgba(45,105,145,.24), transparent 33rem),
+    radial-gradient(ellipse at 42% 72%, rgba(56,102,80,.17), transparent 38rem),
+    #0b1722;
+}
+body.new-year-theme::before {
+  opacity: .78;
+  background-image:
+    radial-gradient(circle, rgba(255,250,231,.95) 0 1.7px, transparent 2.7px),
+    radial-gradient(circle, rgba(169,227,242,.9) 0 1.4px, transparent 2.5px),
+    radial-gradient(circle, rgba(255,255,255,.82) 0 2.2px, transparent 3.4px),
+    radial-gradient(circle, rgba(240,201,120,.78) 0 1.3px, transparent 2.4px),
+    radial-gradient(circle, rgba(255,255,255,.62) 0 1px, transparent 2px);
+  background-size: 115px 145px, 177px 211px, 253px 287px, 319px 241px, 89px 103px;
+  background-position: 0 -20px, 40px -70px, 100px 20px, 170px -120px, 12px 8px;
+  animation: snow-fall 16s linear infinite;
+}
+body.new-year-theme::after {
+  opacity: .48;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(31,133,111,.23), transparent 25%),
+    radial-gradient(ellipse at 86% 58%, rgba(37,114,157,.22), transparent 23%),
+    radial-gradient(ellipse at 42% 94%, rgba(113,131,69,.15), transparent 24%);
+}
+body.new-year-theme .site-header {
+  border-color: rgba(169,227,242,.2);
+  background: rgba(11,28,40,.92);
+}
+body.new-year-theme .hero::after {
+  position: absolute;
+  z-index: 0;
+  inset: 5% -12% 9% 25%;
+  background:
+    radial-gradient(ellipse at 68% 48%,rgba(31,130,135,.19),transparent 42%),
+    radial-gradient(ellipse at 82% 72%,rgba(198,154,75,.1),transparent 34%);
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .holiday-garland {
+  position: absolute;
+  display: block;
+  z-index: 3;
+  top: -19px;
+  right: -2%;
+  left: -2%;
+  height: 83px;
+  pointer-events: none;
+}
+body.new-year-theme .holiday-garland svg { width: 100%; height: 100%; overflow: visible; }
+body.new-year-theme .garland-cord {
+  fill: none;
+  stroke: #39765a;
+  stroke-width: 4;
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,.4));
+}
+body.new-year-theme .garland-pine {
+  fill: none;
+  stroke: #57936a;
+  stroke-linecap: round;
+  stroke-width: 3;
+  opacity: .8;
+}
+body.new-year-theme .garland-lights path {
+  fill: none;
+  stroke: #d7bd80;
+  stroke-width: 2;
+}
+body.new-year-theme .garland-lights circle {
+  fill: #f0c978;
+  stroke: #fff0c1;
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 6px rgba(255,213,125,.8));
+  animation: garland-twinkle 2.4s ease-in-out infinite alternate;
+}
+body.new-year-theme .garland-lights circle:nth-of-type(3n + 2) {
+  fill: #df8990;
+  filter: drop-shadow(0 0 6px rgba(242,125,133,.72));
+  animation-delay: .7s;
+}
+body.new-year-theme .garland-lights circle:nth-of-type(3n) {
+  fill: #a9e3f2;
+  filter: drop-shadow(0 0 6px rgba(124,218,246,.75));
+  animation-delay: 1.3s;
+}
+@keyframes garland-twinkle {
+  from { opacity: .62; filter: drop-shadow(0 0 3px currentColor); }
+  to { opacity: 1; filter: drop-shadow(0 0 10px currentColor); }
+}
+body.new-year-theme .hero-preview .spark-b { color: #f0c978; }
+body.new-year-theme .chat-window {
+  border-color: rgba(169,227,242,.28);
+  background: rgba(13,27,37,.96);
+  box-shadow: 0 27px 75px rgba(0,0,0,.42),0 0 35px rgba(57,153,148,.1);
+}
+body.new-year-theme .chat-window-top { border-bottom-color: rgba(169,227,242,.12); }
+body.new-year-theme .user-message {
+  border-color: rgba(169,227,242,.18);
+  background: #1c3c45;
+}
+body.new-year-theme .assistant-message { background: #173139; }
+body.new-year-theme .chat-input { border-color: #31505a; }
+body.new-year-theme .floating-note {
+  border-color: #35535a;
+  background: #173039;
+}
+body.new-year-theme .note-icon { background: #22464b; }
+body.new-year-theme .brand-mark {
+  border-color: rgba(169,227,242,.18);
+  background: linear-gradient(145deg,#24484a,#17303a);
+}
+body.new-year-theme .features-section {
+  border-color: rgba(169,227,242,.11);
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(169,227,242,.1),transparent 34rem),
+    radial-gradient(ellipse at 8% 82%,rgba(36,123,100,.13),transparent 28rem),
+    linear-gradient(125deg,#101f29,#142a32 48%,#101f29);
+}
+body.new-year-theme .features-section::before {
+  background:
+    radial-gradient(ellipse at 8% 20%,rgba(53,150,119,.18),transparent 30rem),
+    radial-gradient(ellipse at 91% 78%,rgba(50,119,164,.18),transparent 31rem);
+}
+body.new-year-theme .features-section::after {
+  position: absolute;
+  z-index: -1;
+  right: -7%;
+  bottom: -180px;
+  left: -7%;
+  height: 260px;
+  border-radius: 50% 50% 0 0;
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(224,246,236,.12),transparent 68%),
+    linear-gradient(180deg,rgba(27,76,70,.22),rgba(12,28,38,0));
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .feature-card {
+  border-color: #29444a;
+  background:
+    radial-gradient(ellipse at 100% 0,rgba(169,227,242,.09),transparent 46%),
+    linear-gradient(145deg,rgba(23,46,52,.97),rgba(17,34,43,.97));
+}
+body.new-year-theme .feature-card::after,
+body.new-year-theme .widget::after,
+body.new-year-theme .requirement-card::after {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: 0;
+  width: 82px;
+  height: 82px;
+  background:
+    linear-gradient(0deg,transparent 48%,rgba(169,227,242,.3) 49% 51%,transparent 52%),
+    linear-gradient(60deg,transparent 48%,rgba(169,227,242,.26) 49% 51%,transparent 52%),
+    linear-gradient(120deg,transparent 48%,rgba(169,227,242,.26) 49% 51%,transparent 52%);
+  -webkit-mask-image: radial-gradient(circle at 100% 0,#000,transparent 72%);
+  mask-image: radial-gradient(circle at 100% 0,#000,transparent 72%);
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .feature-card > *,
+body.new-year-theme .widget > *,
+body.new-year-theme .requirement-card > * {
+  position: relative;
+  z-index: 1;
+}
+body.new-year-theme .feature-card:hover { border-color: rgba(169,227,242,.48); }
+body.new-year-theme .feature-card:nth-child(3n + 1) { --card-glow: rgba(62,157,133,.18); }
+body.new-year-theme .feature-card:nth-child(3n + 2) { --card-glow: rgba(74,137,168,.19); }
+body.new-year-theme .feature-card:nth-child(3n) { --card-glow: rgba(207,163,91,.15); }
+body.new-year-theme .feature-icon,
+body.new-year-theme .requirement-icon {
+  border-color: rgba(169,227,242,.24);
+  background: linear-gradient(145deg,rgba(169,227,242,.14),rgba(168,223,191,.06));
+  box-shadow: inset 0 1px rgba(255,255,255,.06),0 0 16px rgba(87,190,166,.06);
+}
+body.new-year-theme .feature-index { color: #a9c5c6; }
+body.new-year-theme .app-preview {
+  border-color: #29444a;
+  background:
+    radial-gradient(ellipse at 77% 8%,rgba(43,111,118,.2),transparent 30rem),
+    radial-gradient(ellipse at 12% 100%,rgba(43,111,91,.1),transparent 22rem),
+    #0d1a24;
+  box-shadow: 0 28px 75px rgba(0,0,0,.26),0 0 34px rgba(63,149,137,.07);
+}
+body.new-year-theme .app-tab.active {
+  background: #1d3a43;
+  color: var(--accent);
+}
+body.new-year-theme .welcome-panel {
+  background:
+    radial-gradient(ellipse at 50% 45%,rgba(34,112,112,.42),rgba(23,64,69,.25) 48%,transparent 76%),
+    radial-gradient(circle at 13% 22%,rgba(239,219,168,.8) 0 1px,transparent 2px),
+    radial-gradient(circle at 84% 72%,rgba(169,227,242,.7) 0 1px,transparent 2px),
+    #10212b;
+}
+body.new-year-theme .welcome-panel::before {
+  position: absolute;
+  top: -29px;
+  left: 4%;
+  width: 92%;
+  height: 70px;
+  border-bottom: 2px solid rgba(103,173,124,.9);
+  border-radius: 0 0 50% 50%;
+  background:
+    radial-gradient(circle at 10% 88%,#f0c978 0 4px,transparent 5px),
+    radial-gradient(circle at 26% 98%,#e28a91 0 4px,transparent 5px),
+    radial-gradient(circle at 43% 100%,#a9e3f2 0 4px,transparent 5px),
+    radial-gradient(circle at 60% 100%,#f0c978 0 4px,transparent 5px),
+    radial-gradient(circle at 77% 96%,#e28a91 0 4px,transparent 5px),
+    radial-gradient(circle at 92% 84%,#a9e3f2 0 4px,transparent 5px);
+  content: "";
+  filter: drop-shadow(0 0 5px rgba(255,220,147,.42));
+  pointer-events: none;
+}
+body.new-year-theme .welcome-panel::after {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 65%,rgba(255,245,219,.8) 0 1px,transparent 2px),
+    radial-gradient(circle at 87% 35%,rgba(169,227,242,.85) 0 1.5px,transparent 2.5px),
+    radial-gradient(circle at 74% 78%,rgba(255,255,255,.76) 0 1px,transparent 2px);
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .welcome-panel > p:first-of-type { color: #b6dce0; }
+body.new-year-theme .welcome-decoration i,
+body.new-year-theme .welcome-decoration b { border-color: rgba(169,227,242,.2); }
+body.new-year-theme .welcome-decoration b { background: radial-gradient(circle at 30% 30%,rgba(169,227,242,.15),transparent 60%); }
+body.new-year-theme .welcome-buttons span + span {
+  border-color: #36545b;
+  background: #19313a;
+}
+body.new-year-theme .widget {
+  border-color: #29434a;
+  background: linear-gradient(145deg,#142731,#10212c);
+}
+body.new-year-theme .weather-days span,
+body.new-year-theme .calendar > i { background: #1b333d; }
+body.new-year-theme .task-meter,
+body.new-year-theme .track-line { background: #203a43; }
+body.new-year-theme .widget-action {
+  background: #1d3a43;
+  color: #e4f0e9;
+}
+body.new-year-theme .disc { border-color: #a9e3f2; }
+body.new-year-theme .intro {
+  border-top-color: rgba(169,227,242,.12);
+  background:
+    radial-gradient(ellipse at 82% 18%,rgba(42,128,121,.12),transparent 24rem),
+    radial-gradient(ellipse at 8% 100%,rgba(39,94,115,.1),transparent 26rem);
+}
+body.new-year-theme .intro h2 span,
+body.new-year-theme .models-copy h2 span,
+body.new-year-theme .workflow-copy h2 span,
+body.new-year-theme .closing h2 span {
+  background: linear-gradient(100deg,#a9e3f2 4%,#d4f0dc 48%,#f0c978 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+body.new-year-theme .dashboard-section .section-title-row .eyebrow,
+body.new-year-theme .intro > .eyebrow {
+  color: #f0c978;
+  text-shadow: 0 0 16px rgba(240,201,120,.2);
+}
+body.new-year-theme .dashboard-label > span { color: #8fb5b4; }
+body.new-year-theme .models-section {
+  position: relative;
+  isolation: isolate;
+}
+body.new-year-theme .models-section::before {
+  position: absolute;
+  z-index: -1;
+  inset: 12% -8%;
+  background:
+    radial-gradient(ellipse at 18% 55%,rgba(42,138,113,.16),transparent 30rem),
+    radial-gradient(ellipse at 88% 40%,rgba(47,114,148,.15),transparent 28rem);
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .model-card {
+  position: relative;
+  overflow: hidden;
+  border-color: #29444a;
+  border-top-color: #7bbd9b;
+  background:
+    radial-gradient(ellipse at 82% 0,rgba(169,227,242,.13),transparent 48%),
+    linear-gradient(155deg,rgba(30,65,66,.78),#14232c 70%);
+  box-shadow: inset 0 1px rgba(221,248,234,.05),0 14px 34px rgba(0,0,0,.12);
+}
+body.new-year-theme .model-card::before {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  left: 12px;
+  height: 12px;
+  border-top: 1px solid rgba(126,190,151,.55);
+  background:
+    radial-gradient(circle at 8% 0,#f0c978 0 2px,transparent 3px),
+    radial-gradient(circle at 31% 0,#df8990 0 2px,transparent 3px),
+    radial-gradient(circle at 55% 0,#a9e3f2 0 2px,transparent 3px),
+    radial-gradient(circle at 79% 0,#f0c978 0 2px,transparent 3px),
+    radial-gradient(circle at 96% 0,#df8990 0 2px,transparent 3px);
+  content: "";
+  filter: drop-shadow(0 0 4px rgba(240,201,120,.35));
+  animation: winter-lights 2.8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+body.new-year-theme .model-card:nth-child(2)::before { animation-delay: .6s; }
+body.new-year-theme .model-card:nth-child(3)::before { animation-delay: 1.2s; }
+body.new-year-theme .model-card > * {
+  position: relative;
+  z-index: 1;
+}
+body.new-year-theme .model-symbol {
+  border-color: #35565b;
+  background: linear-gradient(145deg,#24484a,#1c3940);
+  box-shadow: 0 0 18px rgba(169,227,242,.08);
+}
+body.new-year-theme .model-label {
+  color: #a8c5c4;
+}
+body.new-year-theme .workflow-section {
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(169,227,242,.12);
+  background:
+    radial-gradient(circle at 10% 18%,rgba(255,255,255,.5) 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 74%,rgba(169,227,242,.55) 0 1px,transparent 2px),
+    radial-gradient(circle at 68% 16%,rgba(240,201,120,.52) 0 1.5px,transparent 2.5px),
+    radial-gradient(ellipse at 76% 50%,rgba(35,115,116,.22),transparent 34rem),
+    linear-gradient(125deg,#101e28,#142731 52%,#101e28);
+}
+body.new-year-theme .workflow-section::before {
+  position: absolute;
+  top: -110px;
+  right: -100px;
+  width: 340px;
+  height: 250px;
+  border: 1px solid rgba(169,227,242,.07);
+  border-radius: 50%;
+  box-shadow: 0 0 0 18px rgba(169,227,242,.018),0 0 0 38px rgba(169,227,242,.014);
+  content: "";
+  pointer-events: none;
+}
+body.new-year-theme .workflow-grid {
+  position: relative;
+}
+body.new-year-theme .editor-demo {
+  border-color: #2b4850;
+  background-color: #142630;
+  box-shadow: 0 24px 65px rgba(0,0,0,.28),0 0 34px rgba(55,150,138,.1);
+}
+body.new-year-theme .editor-content {
+  background-image:
+    radial-gradient(rgba(169,227,242,.16) .8px,transparent .8px),
+    radial-gradient(ellipse at 50% 100%,rgba(45,121,99,.16),transparent 65%);
+}
+body.new-year-theme .node {
+  border-color: #38545a;
+  background: #1b3038;
+}
+body.new-year-theme .node > i { background: rgba(169,227,242,.12); }
+body.new-year-theme .voice-section {
+  background:
+    radial-gradient(circle at 9% 22%,rgba(255,255,255,.46) 0 1px,transparent 2px),
+    radial-gradient(circle at 22% 78%,rgba(169,227,242,.58) 0 1px,transparent 2px),
+    radial-gradient(circle at 89% 31%,rgba(240,201,120,.48) 0 1.5px,transparent 2.5px),
+    radial-gradient(ellipse at 15% 50%,rgba(40,128,112,.2),transparent 22rem),
+    radial-gradient(ellipse at 82% 65%,rgba(39,103,135,.12),transparent 26rem);
+}
+body.new-year-theme .voice-orb {
+  border-color: rgba(169,227,242,.4);
+  background: radial-gradient(circle at 37% 32%,#386b68,#1c3c46 55%,#14232d);
+  box-shadow: 0 0 0 15px rgba(140,224,202,.045),0 0 0 31px rgba(169,227,242,.025),0 0 60px rgba(54,159,165,.23);
+}
+body.new-year-theme .voice-orb::before,
+body.new-year-theme .voice-orb::after { border-color: rgba(169,227,242,.22); }
+body.new-year-theme .voice-orb > span {
+  color: #d7f0dc;
+  text-shadow: 0 0 18px rgba(169,227,242,.65),0 0 38px rgba(240,201,120,.22);
+}
+body.new-year-theme .voice-facts i { color: #f0c978; }
+body.new-year-theme .requirements-section {
+  border-color: rgba(169,227,242,.11);
+  background:
+    radial-gradient(ellipse at 10% 0,rgba(40,133,109,.18),transparent 30rem),
+    radial-gradient(ellipse at 94% 95%,rgba(43,108,144,.18),transparent 30rem),
+    linear-gradient(130deg,#101e28,#172d34 52%,#101e28);
+}
+body.new-year-theme .requirement-card {
+  border-color: #29444a;
+  background:
+    radial-gradient(ellipse at 100% 0,rgba(169,227,242,.1),transparent 55%),
+    linear-gradient(145deg,rgba(23,46,52,.95),rgba(15,32,41,.93));
+  box-shadow: inset 0 1px rgba(225,248,239,.045),0 12px 30px rgba(0,0,0,.12);
+}
+body.new-year-theme .download-row {
+  position: relative;
+  overflow: hidden;
+  border-color: #29444a;
+  background:
+    radial-gradient(ellipse at 0 0,rgba(44,131,112,.17),transparent 48%),
+    linear-gradient(115deg,rgba(12,28,37,.94),rgba(21,46,52,.82));
+  box-shadow: 0 14px 36px rgba(0,0,0,.16);
+}
+body.new-year-theme .download-row::before {
+  position: absolute;
+  top: 0;
+  right: 5%;
+  left: 5%;
+  height: 8px;
+  border-top: 1px solid rgba(126,190,151,.55);
+  background:
+    radial-gradient(circle at 8% 0,#f0c978 0 2px,transparent 3px),
+    radial-gradient(circle at 25% 0,#df8990 0 2px,transparent 3px),
+    radial-gradient(circle at 43% 0,#a9e3f2 0 2px,transparent 3px),
+    radial-gradient(circle at 61% 0,#f0c978 0 2px,transparent 3px),
+    radial-gradient(circle at 79% 0,#df8990 0 2px,transparent 3px),
+    radial-gradient(circle at 96% 0,#a9e3f2 0 2px,transparent 3px);
+  content: "";
+  filter: drop-shadow(0 0 4px rgba(240,201,120,.35));
+  animation: winter-lights 3.2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+body.new-year-theme .download-row > * {
+  position: relative;
+  z-index: 1;
+}
+body.new-year-theme .closing-mark {
+  border-color: rgba(169,227,242,.28);
+  background: linear-gradient(145deg,rgba(169,227,242,.17),rgba(168,223,191,.07));
+  box-shadow: 0 0 0 8px rgba(169,227,242,.025),0 0 32px rgba(87,190,166,.14);
+  color: #f0c978;
+  text-shadow: 0 0 14px rgba(240,201,120,.55);
+}
+body.new-year-theme .closing {
+  position: relative;
+  isolation: isolate;
+  border-top-color: rgba(169,227,242,.13);
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(43,124,111,.18),transparent 34rem),
+    radial-gradient(circle at 18% 30%,rgba(255,255,255,.52) 0 1px,transparent 2px),
+    radial-gradient(circle at 82% 56%,rgba(169,227,242,.55) 0 1px,transparent 2px);
+}
+body.new-year-theme .closing .eyebrow {
+  color: #f0c978;
+}
+body.new-year-theme .site-footer {
+  border-top-color: rgba(169,227,242,.16);
+  background:
+    radial-gradient(ellipse at 50% 0,rgba(36,108,99,.13),transparent 60%),
+    #0b1722;
+}
+@keyframes winter-lights {
+  from { opacity: .62; filter: drop-shadow(0 0 2px rgba(240,201,120,.18)); }
+  to { opacity: 1; filter: drop-shadow(0 0 7px rgba(240,201,120,.52)); }
+}
+body.new-year-theme .theme-toggle {
+  border-color: rgba(169,227,242,.42);
+  background: #18343b;
+  color: #b8e7d0;
+  box-shadow: 0 0 18px rgba(96,191,169,.16);
+}
+body.new-year-theme .theme-toggle:hover {
+  border-color: #a9e3f2;
+  box-shadow: 0 0 22px rgba(96,191,220,.3);
+}
+.theme-toggle .tree-line,
+.theme-toggle .tree-trunk { stroke: currentColor; }
+.theme-toggle .tree-star { fill: #f0c978; stroke: #f0c978; }
+.theme-toggle .tree-ornament { fill: #f0c978; stroke: none; }
+.theme-toggle .ornament-b { fill: #a9e3f2; }
+.theme-toggle .ornament-c { fill: #d98b91; }
+body.new-year-theme .feature-card:hover,
+body.new-year-theme .model-card:hover,
+body.new-year-theme .requirement-card:hover,
+body.new-year-theme .widget:hover {
+  border-color: rgba(169,227,242,.55);
+  box-shadow: 0 14px 38px rgba(0,0,0,.28),0 0 28px rgba(87,190,166,.14);
+}
+@keyframes snow-fall {
+  to { background-position: 100px 520px, -20px 470px, 180px 500px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.new-year-theme::before { animation: none; }
+}
 
 @media (max-width: 900px) {
   .nav-links { gap: 15px; }
