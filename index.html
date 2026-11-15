@@ -31,6 +31,21 @@
 
   <main>
     <section class="hero section-wrap" id="overview">
+      <div class="holiday-garland" aria-hidden="true">
+        <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+          <path class="garland-cord" d="M-20 2C220 72 330 88 600 57s390-56 620 0"/>
+          <path class="garland-pine" d="M0 12l18 13m9-7 18 15m10-4 18 15m14-4 17 13m16-6 18 13m20-5 18 11m20-5 18 10m22-4 19 9m25-4 20 8m28-5 20 7m31-5 20 6m35-6 20 5m38-7 20 5m38-8 20 4m38-10 20 4m35-12 20 5m29-14 20 7m25-17 20 8m20-22 20 10m17-26 16 11m14-30 13 12"/>
+          <g class="garland-lights">
+            <path d="M75 25v10m95 17v10m100 14v10m104 9v10m108 0v10m108-8v10m110-17v10m108-18v10m103-17v10m99-17v10m91-18v10m83-20v10"/>
+            <circle cx="75" cy="40" r="6"/><circle cx="170" cy="62" r="6"/>
+            <circle cx="270" cy="80" r="6"/><circle cx="374" cy="84" r="6"/>
+            <circle cx="482" cy="81" r="6"/><circle cx="590" cy="75" r="6"/>
+            <circle cx="700" cy="65" r="6"/><circle cx="808" cy="54" r="6"/>
+            <circle cx="911" cy="47" r="6"/><circle cx="1010" cy="42" r="6"/>
+            <circle cx="1101" cy="36" r="6"/><circle cx="1184" cy="29" r="6"/>
+          </g>
+        </svg>
+      </div>
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot"></span> НАСТОЛЬНАЯ ПОМОЩНИЦА ОТ FORG LABS</p>
         <h1>Твоя Элара <span class="hero-star">✦</span><br><span class="headline-accent">всегда рядом.</span></h1>
@@ -261,7 +276,7 @@
         </div>
         <div class="download-row">
           <div><b>Голосовой ввод — по желанию</b><span>Нужны микрофон и около 3,5 ГБ для модели распознавания. Для загрузки моделей потребуется интернет.</span></div>
-          <a class="button button-primary download-button" href="https://drive.google.com/uc?export=download&amp;id=1TQO10-jIxA7i7SMnAiCZybENh4EdX3--" target="_blank" rel="noopener noreferrer">Скачать для Windows <span aria-hidden="true">↓</span></a>
+          <a class="button button-primary download-button" href="https://drive.google.com/uc?export=download&amp;id=18uHOawG11OOlBRz1pkUP0NZd-aGieg91" target="_blank" rel="noopener noreferrer">Скачать для Windows <span aria-hidden="true">↓</span></a>
           <span class="download-status">Установщик · 2,67 ГБ. Google Диск может запросить подтверждение загрузки.</span>
         </div>
       </div>
@@ -279,11 +294,14 @@
   <footer class="site-footer">
     <a class="brand" href="#top" aria-label="Forg Labs — Элара"><span class="brand-studio">Forg Labs</span><span class="brand-separator" aria-hidden="true"></span><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-product">Элара</span></a>
     <span>Настольная помощница · Forg Labs</span>
-    <button class="theme-toggle" type="button" aria-label="Включить хэллоуинскую тему" aria-pressed="false" title="Включить хэллоуинскую тему">
+    <button class="theme-toggle" type="button" aria-label="Включить новогоднюю тему" aria-pressed="false" title="Включить новогоднюю тему">
       <svg viewBox="0 0 48 48" aria-hidden="true">
-        <path class="web-lines" d="M24 24 24 3M24 24 43 12M24 24 45 34M24 24 34 45M24 24 14 45M24 24 3 34M24 24 5 12M8 9l8 3-3 8M40 9l-8 3 3 8M42 37l-9-1 1-9M32 42l-7-6 6-7M10 37l9-1-1-9M16 42l7-6-6-7M4 13l9-1-1-9M40 13 27 9l-3-6"/>
-        <path class="spider-line" d="M36 15v7m-5-4-4-3m9 3 4-3m-9 5-5 1m10-1 5 1m-9 1-4 4m9-4 4 4"/>
-        <circle class="spider-body" cx="36" cy="25" r="3"/>
+        <path class="tree-line" d="M24 5 14 18h6L10 30h11v11h6V30h11L28 18h6L24 5Z"/>
+        <path class="tree-trunk" d="M24 41v3"/>
+        <circle class="tree-ornament ornament-a" cx="24" cy="16" r="1.5"/>
+        <circle class="tree-ornament ornament-b" cx="19" cy="27" r="1.5"/>
+        <circle class="tree-ornament ornament-c" cx="29" cy="27" r="1.5"/>
+        <path class="tree-star" d="m24 2 1.2 2.2 2.5.4-1.8 1.7.4 2.5L24 7.6l-2.3 1.2.4-2.5-1.8-1.7 2.5-.4L24 2Z"/>
       </svg>
     </button>
     <a href="#top">Наверх ↑</a>
@@ -473,11 +491,30 @@
       "Наверх": "Back to top",
       "Наверх ↑": "Back to top ↑",
       "Включить хэллоуинскую тему": "Enable the Halloween theme",
-      "Выключить хэллоуинскую тему": "Disable the Halloween theme"
+      "Выключить хэллоуинскую тему": "Disable the Halloween theme",
+      "Включить новогоднюю тему": "Enable the New Year theme",
+      "Выключить новогоднюю тему": "Disable the New Year theme"
     };
 
     const themeToggle = document.querySelector(".theme-toggle");
     const languageToggle = document.querySelector(".language-toggle");
+    const seasonalThemes = {
+      halloween: {
+        className: "halloween-theme",
+        labels: {
+          ru: ["Включить хэллоуинскую тему", "Выключить хэллоуинскую тему"],
+          en: ["Enable the Halloween theme", "Disable the Halloween theme"]
+        }
+      },
+      "new-year": {
+        className: "new-year-theme",
+        labels: {
+          ru: ["Включить новогоднюю тему", "Выключить новогоднюю тему"],
+          en: ["Enable the New Year theme", "Disable the New Year theme"]
+        }
+      }
+    };
+    let activeSeasonalTheme = "new-year";
     const descriptions = {
       ru: "Элара — настольная помощница: чаты, расписание, модели ИИ и собственные команды.",
       en: "Elara is a desktop companion for AI chats, schedules, models, and custom workflows."
@@ -557,15 +594,7 @@
         useEnglish ? "Switch to Russian" : "Switch to English"
       );
       languageToggle.title = useEnglish ? "Switch to Russian" : "Switch to English";
-      const halloweenLabel = useEnglish
-        ? (themeToggle.getAttribute("aria-pressed") === "true"
-          ? englishText["Выключить хэллоуинскую тему"]
-          : englishText["Включить хэллоуинскую тему"])
-        : (themeToggle.getAttribute("aria-pressed") === "true"
-          ? "Выключить хэллоуинскую тему"
-          : "Включить хэллоуинскую тему");
-      themeToggle.setAttribute("aria-label", halloweenLabel);
-      themeToggle.title = halloweenLabel;
+      updateSeasonalThemeLabel();
 
       if (save) {
         localStorage.setItem("elara-site-language", language);
@@ -578,14 +607,36 @@
       setLanguage(document.documentElement.lang === "en" ? "ru" : "en");
     });
 
-    themeToggle.addEventListener("click", () => {
-      const enabled = document.body.classList.toggle("halloween-theme");
+    function updateSeasonalThemeLabel() {
+      const theme = seasonalThemes[activeSeasonalTheme];
+      const enabled = document.body.classList.contains(theme.className);
+      const language = document.documentElement.lang === "en" ? "en" : "ru";
+      const label = theme.labels[language][enabled ? 1 : 0];
       themeToggle.setAttribute("aria-pressed", String(enabled));
-      const label = document.documentElement.lang === "en"
-        ? (enabled ? englishText["Выключить хэллоуинскую тему"] : englishText["Включить хэллоуинскую тему"])
-        : (enabled ? "Выключить хэллоуинскую тему" : "Включить хэллоуинскую тему");
       themeToggle.setAttribute("aria-label", label);
       themeToggle.title = label;
+    }
+
+    function setSeasonalTheme(name, enabled) {
+      const theme = seasonalThemes[name];
+      if (!theme) return;
+      activeSeasonalTheme = name;
+      if (enabled) {
+        Object.entries(seasonalThemes).forEach(([otherName, otherTheme]) => {
+          if (otherName !== name) {
+            document.body.classList.remove(otherTheme.className);
+          }
+        });
+      }
+      document.body.classList.toggle(theme.className, enabled);
+      updateSeasonalThemeLabel();
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const enabled = !document.body.classList.contains(
+        seasonalThemes["new-year"].className
+      );
+      setSeasonalTheme("new-year", enabled);
     });
   </script>
 </body>
