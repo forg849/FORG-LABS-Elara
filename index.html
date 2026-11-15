@@ -294,6 +294,14 @@
   <footer class="site-footer">
     <a class="brand" href="#top" aria-label="Forg Labs — Элара"><span class="brand-studio">Forg Labs</span><span class="brand-separator" aria-hidden="true"></span><span class="brand-mark" aria-hidden="true">✦</span><span class="brand-product">Элара</span></a>
     <span>Настольная помощница · Forg Labs</span>
+    <button class="sound-toggle" type="button" aria-label="Выключить звук" title="Выключить звук" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 10v4h4l5 4V6l-5 4H4Z"/>
+        <path class="sound-wave" d="M16 9a5 5 0 0 1 0 6m2-9a9 9 0 0 1 0 12"/>
+        <path class="sound-mute" d="m16 9 5 6m0-6-5 6"/>
+      </svg>
+      <span class="sound-label">Выключить звук</span>
+    </button>
     <button class="theme-toggle" type="button" aria-label="Включить новогоднюю тему" aria-pressed="false" title="Включить новогоднюю тему">
       <svg viewBox="0 0 48 48" aria-hidden="true">
         <path class="tree-line" d="M24 5 14 18h6L10 30h11v11h6V30h11L28 18h6L24 5Z"/>
@@ -493,11 +501,22 @@
       "Включить хэллоуинскую тему": "Enable the Halloween theme",
       "Выключить хэллоуинскую тему": "Disable the Halloween theme",
       "Включить новогоднюю тему": "Enable the New Year theme",
-      "Выключить новогоднюю тему": "Disable the New Year theme"
+      "Выключить новогоднюю тему": "Disable the New Year theme",
+      "Выключить звук": "Turn sound off",
+      "Включить звук": "Turn sound on",
+      "Звук недоступен": "Sound unavailable"
     };
 
     const themeToggle = document.querySelector(".theme-toggle");
+    const soundToggle = document.querySelector(".sound-toggle");
+    const soundLabel = soundToggle.querySelector(".sound-label");
     const languageToggle = document.querySelector(".language-toggle");
+    let holidaySoundMuted = false;
+    let holidayAudioUnavailable = false;
+    const holidayMusic = new Audio("assets/music/close-your-eyes-now.mp3");
+    holidayMusic.loop = true;
+    holidayMusic.preload = "none";
+    holidayMusic.volume = 0.312;
     const seasonalThemes = {
       halloween: {
         className: "halloween-theme",
@@ -595,6 +614,7 @@
       );
       languageToggle.title = useEnglish ? "Switch to Russian" : "Switch to English";
       updateSeasonalThemeLabel();
+      updateSoundToggle();
 
       if (save) {
         localStorage.setItem("elara-site-language", language);
@@ -617,6 +637,45 @@
       themeToggle.title = label;
     }
 
+    function updateSoundToggle() {
+      const language = document.documentElement.lang === "en" ? "en" : "ru";
+      const labels = language === "en"
+        ? { mute: "Turn sound off", unmute: "Turn sound on", unavailable: "Sound unavailable" }
+        : { mute: "Выключить звук", unmute: "Включить звук", unavailable: "Звук недоступен" };
+      const label = holidayAudioUnavailable
+        ? labels.unavailable
+        : holidaySoundMuted
+          ? labels.unmute
+          : labels.mute;
+      soundToggle.hidden = !document.body.classList.contains("new-year-theme");
+      soundToggle.disabled = holidayAudioUnavailable;
+      soundToggle.setAttribute("aria-label", label);
+      soundToggle.classList.toggle("is-muted", holidaySoundMuted);
+      soundToggle.title = label;
+      soundLabel.textContent = label;
+    }
+
+    function startHolidayMusic() {
+      if (
+        holidaySoundMuted
+        || holidayAudioUnavailable
+        || !holidayMusic.paused
+        || !document.body.classList.contains("new-year-theme")
+      ) {
+        return;
+      }
+
+      holidayMusic.play().catch((error) => {
+        holidayAudioUnavailable = true;
+        updateSoundToggle();
+        console.error("Не удалось запустить новогоднюю музыку:", error);
+      });
+    }
+
+    function stopHolidayMusic() {
+      holidayMusic.pause();
+    }
+
     function setSeasonalTheme(name, enabled) {
       const theme = seasonalThemes[name];
       if (!theme) return;
@@ -629,7 +688,14 @@
         });
       }
       document.body.classList.toggle(theme.className, enabled);
+      if (name === "new-year") {
+        if (enabled) startHolidayMusic();
+        else stopHolidayMusic();
+      } else if (enabled) {
+        stopHolidayMusic();
+      }
       updateSeasonalThemeLabel();
+      updateSoundToggle();
     }
 
     themeToggle.addEventListener("click", () => {
@@ -637,6 +703,15 @@
         seasonalThemes["new-year"].className
       );
       setSeasonalTheme("new-year", enabled);
+    });
+    soundToggle.addEventListener("click", () => {
+      holidaySoundMuted = !holidaySoundMuted;
+      if (holidaySoundMuted) {
+        stopHolidayMusic();
+      } else {
+        startHolidayMusic();
+      }
+      updateSoundToggle();
     });
   </script>
 </body>
