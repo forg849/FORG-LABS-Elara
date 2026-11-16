@@ -141,7 +141,7 @@ h1, h2, h3 { font-family: var(--display); }
 .orbit { position: absolute; width: 360px; height: 360px; border: 1px solid rgba(194,180,255,.12); border-radius: 50%; }
 .orbit-a { transform: scaleX(1.45) rotate(-23deg); }
 .orbit-b { width: 300px; height: 300px; transform: scaleX(.86) rotate(25deg); opacity: .7; }
-.preview-spark { position: absolute; z-index: 2; color: var(--accent); opacity: .8; }
+.preview-spark { position: absolute; z-index: 2; color: var(--accent); filter: drop-shadow(0 0 8px currentColor); opacity: .8; }
 .spark-a { top: 54px; left: 10%; font-size: 24px; }
 .spark-b { right: 7%; bottom: 60px; color: var(--orange); font-size: 18px; }
 .chat-window { position: relative; z-index: 1; width: min(390px, 94%); padding: 0 15px 11px; border: 1px solid #3c3744; border-radius: 13px; background: rgba(27,26,33,.96); box-shadow: 0 27px 75px rgba(0,0,0,.38); transform: rotate(1deg); }
@@ -386,8 +386,8 @@ body.halloween-theme .theme-toggle { border-color: #ffad69; background: #3a2024;
   to { rotate: 360deg; }
 }
 @keyframes spark-glimmer {
-  0%, 100% { opacity: .55; filter: drop-shadow(0 0 4px currentColor); }
-  50% { opacity: 1; filter: drop-shadow(0 0 12px currentColor); }
+  0%, 100% { opacity: .55; }
+  50% { opacity: 1; }
 }
 @keyframes preview-float {
   0%, 100% { translate: 0 0; }
@@ -405,8 +405,8 @@ body.halloween-theme .theme-toggle { border-color: #ffad69; background: #3a2024;
 body::before { animation: ambient-glow 9s ease-in-out infinite alternate; }
 .status-dot { animation: status-pulse 2.8s ease-in-out infinite; }
 @keyframes status-pulse {
-  0%, 100% { box-shadow: 0 0 8px rgba(255,152,84,.3); }
-  50% { box-shadow: 0 0 17px rgba(255,152,84,.8); }
+  0%, 100% { opacity: .7; }
+  50% { opacity: 1; }
 }
 .orbit { animation: orbit-drift 52s linear infinite; }
 .orbit-b { animation-direction: reverse; animation-duration: 68s; }
@@ -512,7 +512,7 @@ body.new-year-theme::before {
     radial-gradient(circle, rgba(255,255,255,.82) 0 2.2px, transparent 3.4px),
     radial-gradient(circle, rgba(240,201,120,.78) 0 1.3px, transparent 2.4px),
     radial-gradient(circle, rgba(255,255,255,.62) 0 1px, transparent 2px);
-  background-size: 115px 145px, 177px 211px, 253px 287px, 319px 241px, 89px 103px;
+  background-size: 115px 260px, 177px 260px, 253px 260px, 319px 260px, 89px 260px;
   background-position: 0 -20px, 40px -70px, 100px 20px, 170px -120px, 12px 8px;
   animation: snow-fall 16s linear infinite;
 }
@@ -584,8 +584,8 @@ body.new-year-theme .garland-lights circle:nth-of-type(3n) {
   animation-delay: 1.3s;
 }
 @keyframes garland-twinkle {
-  from { opacity: .62; filter: drop-shadow(0 0 3px currentColor); }
-  to { opacity: 1; filter: drop-shadow(0 0 10px currentColor); }
+  from { opacity: .62; }
+  to { opacity: 1; }
 }
 body.new-year-theme .hero-preview .spark-b { color: #f0c978; }
 body.new-year-theme .chat-window {
@@ -955,8 +955,8 @@ body.new-year-theme .site-footer {
     #0b1722;
 }
 @keyframes winter-lights {
-  from { opacity: .62; filter: drop-shadow(0 0 2px rgba(240,201,120,.18)); }
-  to { opacity: 1; filter: drop-shadow(0 0 7px rgba(240,201,120,.52)); }
+  from { opacity: .62; }
+  to { opacity: 1; }
 }
 body.new-year-theme .theme-toggle {
   border-color: rgba(169,227,242,.42);
@@ -982,7 +982,7 @@ body.new-year-theme .widget:hover {
   box-shadow: 0 14px 38px rgba(0,0,0,.28),0 0 28px rgba(87,190,166,.14);
 }
 @keyframes snow-fall {
-  to { background-position: 100px 520px, -20px 470px, 180px 500px; }
+  to { transform: translate3d(0, 520px, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   body.new-year-theme::before { animation: none; }
