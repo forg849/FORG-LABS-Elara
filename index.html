@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#111116">
-  <meta name="description" content="Элара — настольная помощница: чаты, расписание, модели ИИ и собственные команды.">
-  <title>Элара — помощница рядом</title>
+  <meta name="description" content="Elara is a desktop companion for AI chats, schedules, models, and custom workflows.">
+  <title>Elara — your desktop companion</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,7 +24,7 @@
       <a href="#workflows">Команды</a>
     </nav>
     <div class="header-actions">
-      <button class="language-toggle" type="button" aria-label="Switch to English" title="Switch to English">EN</button>
+      <button class="language-toggle" type="button" aria-label="Switch to Russian" title="Switch to Russian">RU</button>
       <a class="header-download" href="#download">Скачать <span aria-hidden="true">↓</span></a>
       <a class="header-cta" href="#about">О проекте <span aria-hidden="true">↗</span></a>
     </div>
@@ -561,11 +561,6 @@
       originalTextNodes.set(sourceNode, sourceNode.nodeValue);
     }
 
-    function browserLanguage() {
-      const preferred = navigator.languages?.[0] || navigator.language || "ru";
-      return preferred.toLowerCase().startsWith("en") ? "en" : "ru";
-    }
-
     function setLanguage(language, save = true) {
       const useEnglish = language === "en";
       const walker = document.createTreeWalker(
@@ -623,7 +618,7 @@
     }
 
     const savedLanguage = localStorage.getItem("elara-site-language");
-    setLanguage(savedLanguage === "en" || savedLanguage === "ru" ? savedLanguage : browserLanguage(), false);
+    setLanguage(savedLanguage === "ru" ? "ru" : "en", false);
     languageToggle.addEventListener("click", () => {
       setLanguage(document.documentElement.lang === "en" ? "ru" : "en");
     });
@@ -667,6 +662,8 @@
       }
 
       holidayMusic.play().catch((error) => {
+        if (error.name === "AbortError") return;
+
         holidayAudioUnavailable = true;
         updateSoundToggle();
         console.error("Не удалось запустить новогоднюю музыку:", error);
@@ -680,6 +677,7 @@
     function setSeasonalTheme(name, enabled) {
       const theme = seasonalThemes[name];
       if (!theme) return;
+
       activeSeasonalTheme = name;
       if (enabled) {
         Object.entries(seasonalThemes).forEach(([otherName, otherTheme]) => {
@@ -689,12 +687,14 @@
         });
       }
       document.body.classList.toggle(theme.className, enabled);
+
       if (name === "new-year") {
         if (enabled) startHolidayMusic();
         else stopHolidayMusic();
       } else if (enabled) {
         stopHolidayMusic();
       }
+
       updateSeasonalThemeLabel();
       updateSoundToggle();
     }
@@ -705,13 +705,11 @@
       );
       setSeasonalTheme("new-year", enabled);
     });
+
     soundToggle.addEventListener("click", () => {
       holidaySoundMuted = !holidaySoundMuted;
-      if (holidaySoundMuted) {
-        stopHolidayMusic();
-      } else {
-        startHolidayMusic();
-      }
+      if (holidaySoundMuted) stopHolidayMusic();
+      else startHolidayMusic();
       updateSoundToggle();
     });
   </script>
